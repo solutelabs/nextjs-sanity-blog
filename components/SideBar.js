@@ -10,7 +10,7 @@ const SideBar = () => {
     setIsOpen((s) => !s);
   };
   return (
-    <div className="block sm:hidden">
+    <div className="block sm:hidden opacity-90">
       <FaBars size="2rem" onClick={toggleMenu} />
       {isOpen && (
         <>

@@ -37,7 +37,7 @@ export default Home;
 
 const query = groq`
 *[_type == "post" || _type == "category"] {
-  _id, _type, _updatedAt, title,
+  _id, _type, _updatedAt, _createdAt, title,
   "author": author->name,
   "slug": slug.current,
   categories[]->{title},
