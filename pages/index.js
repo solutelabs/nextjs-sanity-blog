@@ -1,25 +1,17 @@
 import Main from '../components/Main';
-import sanityClient from '../clients/sanity-client';
-import { PortableText } from '@portabletext/react';
+import PCbg from '../components/PCbg';
 
-export default function Home(props) {
-  const { posts } = props;
-  console.log(posts);
+const Home = () => {
   return (
     <>
+      <PCbg />
       <Main>
-        <PortableText value={posts[0]['body']} />
+        <div className="mx-auto my-auto w-[90%] text-center mt-[200px] space-y-16">
+          <h1>Welcome to Blogg</h1>
+          <h3>Created with Next.js, Sanity and Tailwind CSS</h3>
+        </div>
       </Main>
     </>
   );
-}
-
-export async function getStaticProps() {
-  const posts = await sanityClient.fetch(`
-  *[_type == "post"]`);
-  return {
-    props: {
-      posts,
-    },
-  };
-}
+};
+export default Home;

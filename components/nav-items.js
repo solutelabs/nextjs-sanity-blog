@@ -4,6 +4,10 @@ export const navItems = [
     href: '/',
   },
   {
+    name: 'Posts',
+    href: '/#posts',
+  },
+  {
     name: 'Categories',
     href: '/#categories',
   },

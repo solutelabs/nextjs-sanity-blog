@@ -12,9 +12,11 @@
   "dependencies": {
     "@portabletext/react": "^1.0.6",
     "@sanity/client": "^3.3.0",
+    "@sanity/image-url": "^1.0.1",
     "eslint-config-prettier": "^8.5.0",
     "next": "12.1.5",
     "react": "18.0.0",
+    "react-code-blocks": "^0.0.9-0",
     "react-dom": "18.0.0",
     "react-icons": "^4.3.1"
   },

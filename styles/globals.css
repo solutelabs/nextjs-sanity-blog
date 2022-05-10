@@ -14,12 +14,132 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 5;
 }
+.close-btn {
+  z-index: 11;
+}
 .navbar {
+  z-index: 8;
   @apply shadow-sm shadow-neutral-700;
 }
+h1 {
+  @apply text-5xl;
+}
 h2 {
+  @apply text-4xl;
+}
+h3 {
   @apply text-3xl;
 }
+h4 {
+  @apply text-2xl;
+}
+main p,
+main li {
+  @apply text-xl;
+}
+main h1,
+main h2,
+main h3,
+main h4,
+main p {
+  @apply mb-4;
+}
 main a {
-  text-color: blue;
+  @apply italic font-bold text-gray-300;
+}
+blockquote {
+  display: block;
+  /* margin-top: 1em; */
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+  @apply text-xl;
+}
+main ul {
+  list-style-type: disc;
+  @apply pl-10 mb-4;
+}
+main ol {
+  list-style-type: decimal;
+  @apply pl-10 mb-4;
+}
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: #6c3600;
+  animation: ripple 15s infinite;
+  box-shadow: 0px 0px 1px 0px #508fb9;
+}
+
+.small {
+  width: 200px;
+  height: 200px;
+  left: -100px;
+  bottom: -100px;
+}
+
+.medium {
+  width: 400px;
+  height: 400px;
+  left: -200px;
+  bottom: -200px;
+}
+
+.large {
+  width: 600px;
+  height: 600px;
+  left: -300px;
+  bottom: -300px;
+}
+
+.xlarge {
+  width: 800px;
+  height: 800px;
+  left: -400px;
+  bottom: -400px;
+}
+
+.xxlarge {
+  width: 1000px;
+  height: 1000px;
+  left: -500px;
+  bottom: -500px;
+}
+
+.shade1 {
+  opacity: 0.1;
+}
+.shade2 {
+  opacity: 0.2;
+}
+
+.shade3 {
+  opacity: 0.3;
+}
+
+.shade4 {
+  opacity: 0.4;
+}
+
+.shade5 {
+  opacity: 0.5;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+  }
+
+  50% {
+    transform: scale(3);
+  }
+
+  100% {
+    transform: scale(0.8);
+  }
+}
+#background-anmation {
+  position: absolute;
+  top: 50vh;
+  z-index: -10;
 }
