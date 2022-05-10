@@ -7,7 +7,7 @@ const Header = () => {
     <header className="py-3 mb-6 flex items-center justify-around navbar">
       <Link href="/">
         <a>
-          <p className="text-3xl">Blogg</p>
+          <p className="text-3xl">Bloggo</p>
         </a>
       </Link>
       <NavBar />
