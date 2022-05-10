@@ -1,12 +1,17 @@
+import groq from 'groq';
 import Main from '../components/Main';
 import PCbg from '../components/PCbg';
+import Posts from '../components/Posts';
+import sanityClient from '../clients/sanity-client';
 
-const Home = () => {
+const Home = ({ posts, categories }) => {
+  // console.log('Posts', posts);
+  // console.log('Categories', categories);
   return (
     <>
       <PCbg />
       <Main>
-        <div className="mx-auto my-auto w-[90%] text-center mt-[200px] space-y-16">
+        <div className="mx-auto my-auto w-[90%] h-[75vh] flex flex-col gap-4 items-center justify-center text-center">
           <h1>Welcome to Bloggo</h1>
           <h3>
             Created with{' '}
@@ -23,8 +28,31 @@ const Home = () => {
             </a>
           </h3>
         </div>
+        <Posts posts={posts} />
       </Main>
     </>
   );
 };
 export default Home;
+
+const query = groq`
+*[_type == "post" || _type == "category"] {
+  _id, _type, _updatedAt, title,
+  "author": author->name,
+  "slug": slug.current,
+  categories[]->{title},
+  description,
+}
+`;
+
+export async function getStaticProps() {
+  const data = await sanityClient.fetch(query);
+  const posts = data.filter((x) => x._type === 'post');
+  const categories = data.filter((x) => x._type === 'category');
+  return {
+    props: {
+      posts,
+      categories,
+    },
+  };
+}

@@ -4,7 +4,7 @@ import SideBar from './SideBar';
 
 const Header = () => {
   return (
-    <header className="py-3 mb-6 flex items-center justify-around navbar">
+    <header className="py-3 flex items-center justify-around navbar">
       <Link href="/">
         <a>
           <p className="text-3xl">Bloggo</p>

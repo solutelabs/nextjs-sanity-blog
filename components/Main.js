@@ -4,7 +4,7 @@ const Main = (props) => {
   return (
     <>
       <Header />
-      <main>{props.children}</main>
+      <main className="mt-6">{props.children}</main>
     </>
   );
 };

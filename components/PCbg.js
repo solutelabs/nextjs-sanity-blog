@@ -1,6 +1,6 @@
 const PCbg = () => {
   return (
-    <div id="background-anmation" className="hidden sm:block">
+    <div id="background-animation" className="hidden sm:block">
       <div className="circle xxlarge shade1">
         <p className="hidden">Circle xxl</p>
       </div>
