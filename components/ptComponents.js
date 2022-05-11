@@ -39,5 +39,22 @@ const ptComponents = {
       );
     },
   },
+  marks: {
+    link: ({ value, children }) => {
+      const target =
+        (value?.href || '').startsWith('http') && value?.blank
+          ? '_blank'
+          : undefined;
+      return (
+        <a
+          href={value?.href}
+          target={target}
+          rel={target === '_blank' && 'noreferrer'}
+        >
+          {children}
+        </a>
+      );
+    },
+  },
 };
 export default ptComponents;
