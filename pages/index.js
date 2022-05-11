@@ -28,7 +28,13 @@ const Home = ({ posts, categories }) => {
             </a>
           </h3>
         </div>
-        <Posts posts={posts} />
+        <section className="mx-auto min-h-screen w-[95%] sm:w-[85%]">
+          <hr className="mt-24" />
+          <h1 id="posts" className="text-center mt-2">
+            Posts
+          </h1>
+          <Posts posts={posts} />
+        </section>
       </Main>
     </>
   );

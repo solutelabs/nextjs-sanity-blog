@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('./responsive.css');
 
 body {
   @apply bg-neutral-900 text-white;
@@ -45,7 +46,7 @@ main p {
   @apply mb-4;
 }
 main a {
-  @apply italic font-bold text-gray-300;
+  @apply italic text-gray-300;
 }
 blockquote {
   display: block;
@@ -67,7 +68,7 @@ main ol {
   position: absolute;
   border-radius: 50%;
   background: #6c3600;
-  animation: ripple 15s infinite;
+  //animation: ripple 15s infinite;
   box-shadow: 0px 0px 1px 0px #508fb9;
   z-index: -10;
 }
@@ -126,7 +127,7 @@ main ol {
   opacity: 0.5;
 }
 
-@keyframes ripple {
+/* @keyframes ripple {
   0% {
     transform: scale(0.8);
   }
@@ -138,11 +139,12 @@ main ol {
   100% {
     transform: scale(0.8);
   }
-}
+} */
 #background-animation {
   position: fixed;
   top: 50vh;
   z-index: -10;
+  transform: scale(3.03);
 }
 ::-webkit-scrollbar {
   @apply w-4;
@@ -158,4 +160,8 @@ main ol {
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-neutral-600;
+}
+.date,
+.tag {
+  @apply m-0;
 }
