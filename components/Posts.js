@@ -16,6 +16,7 @@ const Posts = ({ posts }) => {
             <a
               className="border-2 hover:bg-neutral-700 hover:bg-opacity-50 transition-all duration-200 w-full
                flex flex-col sm:flex-row sm:items-center justify-between px-2 rounded-lg"
+              target="_blank"
             >
               <div className="flex flex-col sm:max-w-[33%]">
                 <h2>{post.title}</h2>
