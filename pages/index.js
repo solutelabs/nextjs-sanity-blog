@@ -3,10 +3,9 @@ import Main from '../components/Main';
 import PCbg from '../components/PCbg';
 import Posts from '../components/Posts';
 import sanityClient from '../clients/sanity-client';
+import Categories from '../components/Categories';
 
 const Home = ({ posts, categories }) => {
-  // console.log('Posts', posts);
-  // console.log('Categories', categories);
   return (
     <>
       <PCbg />
@@ -35,6 +34,13 @@ const Home = ({ posts, categories }) => {
           </h1>
           <Posts posts={posts} />
         </section>
+        <section className="mx-auto min-h-screen mb-12 w-[95%] sm:w-[85%]">
+          <hr className="mt-24" />
+          <h1 id="categories" className="text-center mt-2 mb-4">
+            Categories
+          </h1>
+          <Categories categories={categories} />
+        </section>
       </Main>
     </>
   );
@@ -46,7 +52,7 @@ const query = groq`
   _id, _type, _updatedAt, _createdAt, title,
   "author": author->name,
   "slug": slug.current,
-  categories[]->{title},
+  categories[]->{title, "slug": slug.current},
   description,
 }
 `;

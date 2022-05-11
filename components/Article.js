@@ -4,6 +4,7 @@ import { PortableText } from '@portabletext/react';
 import sanityClient from '../clients/sanity-client';
 import ptComponents from './ptComponents';
 import Posts from './Posts';
+import Link from 'next/link';
 
 const Article = (props) => {
   const { post } = props;
@@ -44,12 +45,14 @@ const Article = (props) => {
           <div className="flex flex-wrap justify-start items-center gap-2">
             <p className="m-0">Posted in: </p>
             {categories.map((category) => (
-              <div
-                key={category.title}
-                className="bg-neutral-700 bg-opacity-60 px-2 rounded-lg"
-              >
-                #{category.title}
-              </div>
+              <Link href={`/category/${category.slug}`} key={category.title}>
+                <a
+                  className="bg-neutral-700 bg-opacity-60 px-2 rounded-lg not-italic"
+                  target="_blank"
+                >
+                  #{category.title}
+                </a>
+              </Link>
             ))}
           </div>
         )}

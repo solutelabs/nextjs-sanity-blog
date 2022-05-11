@@ -18,13 +18,13 @@ export async function getStaticProps(context) {
   *[_type == "post" && slug.current == $slug][0] {
     _id, _createdAt, _updatedAt,
     author->{name, _id, "slug": slug['current']},
-    body, categories[]->{title},
+    body, categories[]->{title, "slug": slug.current},
     mainImage, "slug": slug['current'], title,
     related[]->{
         _id, _updatedAt, _createdAt, title,
         "author": author->name,
         "slug": slug.current,
-        categories[]->{title},
+        categories[]->{title, "slug": slug.current},
     }
   }`;
   const post = await sanityClient.fetch(query, { slug });
