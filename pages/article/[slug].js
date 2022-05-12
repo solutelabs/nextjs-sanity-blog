@@ -2,12 +2,22 @@ import groq from 'groq';
 import sanityClient from '../../clients/sanity-client';
 import Article from '../../components/Article';
 import Main from '../../components/Main';
+import Head from 'next/head';
 
 const ArticlePage = (props) => {
   return (
-    <Main>
-      <Article post={props.post} />
-    </Main>
+    <>
+      <Head>
+        <title>{props.post.title} | Bloggo</title>
+        <meta
+          name="description"
+          content={`Read article ${props.post.title} on Bloggo`}
+        />
+      </Head>
+      <Main>
+        <Article post={props.post} />
+      </Main>
+    </>
   );
 };
 export default ArticlePage;

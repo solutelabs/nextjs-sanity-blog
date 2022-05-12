@@ -4,10 +4,18 @@ import PCbg from '../components/PCbg';
 import Posts from '../components/Posts';
 import sanityClient from '../clients/sanity-client';
 import Categories from '../components/Categories';
+import Head from 'next/head';
 
 const Home = ({ posts, categories }) => {
   return (
     <>
+      <Head>
+        <title>Bloggo</title>
+        <meta
+          name="description"
+          content="Explore ideas and solutions on various topics on Bloggo"
+        />
+      </Head>
       <PCbg />
       <Main>
         <div className="mx-auto my-auto w-[90%] h-[75vh] flex flex-col gap-4 items-center justify-center text-center">
