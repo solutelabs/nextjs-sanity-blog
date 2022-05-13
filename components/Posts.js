@@ -3,7 +3,7 @@ import { months } from './months';
 
 const Posts = ({ posts }) => {
   return (
-    <div id="articles-lineup" className="w-full mx-auto flex flex-col">
+    <div id="articles-lineup" className="w-full mx-auto flex flex-col gap-8">
       {posts.map((post) => {
         let dateSplit;
         if (post._updatedAt) {
