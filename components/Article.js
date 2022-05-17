@@ -40,7 +40,11 @@ const Article = (props) => {
       <article className="w-[95%] sm:w-[65%] mx-auto flex flex-col gap-2 justify-center items-start">
         <h1 className="m-0 capitalize">{title}</h1>
         <div className="w-full flex flex-wrap items-center justify-between">
-          <h4 className="m-0">{author.name}</h4>
+          <Link href={`/author/${author._id}`}>
+            <a className="not-italic text-white">
+              <h4 className="m-0">{author.name}</h4>
+            </a>
+          </Link>
           <p className="date">
             {months[dateSplit[1] - 1]} {dateSplit[2]}, {dateSplit[0]}
           </p>
