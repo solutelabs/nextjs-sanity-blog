@@ -30,7 +30,7 @@ const Author = ({ author }) => {
               src={urlFor(image._ref).height(height)}
               alt={name}
               loading="lazy"
-              className="sm:sticky sm:top-0"
+              className="sm:sticky sm:top-16"
             />
           )}
           {bio && (

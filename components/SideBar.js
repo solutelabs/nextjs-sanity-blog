@@ -19,7 +19,7 @@ const SideBar = () => {
             onClick={toggleMenu}
             className="absolute top-2 right-2 close-btn"
           />
-          <nav className="absolute z-10 left-0 top-0 w-full h-full text-3xl bg-neutral-800">
+          <nav className="absolute z-10 left-0 top-0 w-full h-screen text-3xl bg-neutral-800">
             <ul className=" mt-16 flex flex-col justify-start items-center gap-8">
               {navItems.map((item) => (
                 <Link key={item.name} href={item.href}>

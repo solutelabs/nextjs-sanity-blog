@@ -142,7 +142,7 @@ main ol {
 } */
 #background-animation {
   position: fixed;
-  top: 50vh;
+  top: 54vh;
   z-index: -10;
   transform: scale(3.03);
 }
