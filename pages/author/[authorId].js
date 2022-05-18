@@ -6,7 +6,7 @@ import Author from '../../components/Author';
 import PCbg from '../../components/PCbg';
 
 const AuthorPage = (props) => {
-  const { author } = props;
+  const { author, posts } = props;
   return (
     <>
       <Head>
@@ -15,7 +15,7 @@ const AuthorPage = (props) => {
       </Head>
       <PCbg />
       <Main>
-        <Author author={author} />
+        <Author author={author} posts={posts} />
       </Main>
     </>
   );
@@ -33,17 +33,27 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { authorId = '' } = context.params;
-  const query = groq`
+  const queryAuthor = groq`
   *[_type == "author" && _id == $id][0]{
     _id, name, bio,
     "slug": slug.current,
     "image": image.asset,
   }
   `;
-  const author = await sanityClient.fetch(query, { id: authorId });
+  const queryAuthorPosts = groq`
+  *[_type == "post" && $id == author._ref]{
+    _id, _type, _updatedAt, _createdAt, title,
+    "author": author->name,
+    "slug": slug.current,
+    categories[]->{title, "slug": slug.current},
+  }
+  `;
+  const author = await sanityClient.fetch(queryAuthor, { id: authorId });
+  const posts = await sanityClient.fetch(queryAuthorPosts, { id: authorId });
   return {
     props: {
       author,
+      posts,
     },
   };
 }

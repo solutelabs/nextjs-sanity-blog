@@ -4,8 +4,9 @@ import imageUrlBuilder from '@sanity/image-url';
 import ptComponents from './ptComponents';
 import sanityClient from '../clients/sanity-client';
 import { getImageDimensions } from '@sanity/asset-utils';
+import Posts from './Posts';
 
-const Author = ({ author }) => {
+const Author = ({ author, posts }) => {
   const { name, bio, image } = author;
 
   function urlFor(source) {
@@ -39,6 +40,12 @@ const Author = ({ author }) => {
             </div>
           )}
         </div>
+        {posts.length > 0 && (
+          <div className="mb-8 w-full flex flex-col justify-center items-center">
+            <h2>Posts</h2>
+            <Posts posts={posts} />
+          </div>
+        )}
       </section>
     </>
   );
