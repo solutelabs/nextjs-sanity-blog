@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('./responsive.css');
 
 body {
   @apply bg-neutral-900 text-white;
@@ -164,4 +163,11 @@ main ol {
 .date,
 .tag {
   @apply m-0;
+}
+
+@media screen and (max-width: 640px) {
+  #background-animation {
+    top: 50vh;
+    transform: scale(1);
+  }
 }

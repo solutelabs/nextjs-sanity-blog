@@ -1,6 +1,0 @@
-@media screen and (max-width: 640px) {
-  #background-animation {
-    top: 50vh;
-    transform: scale(1);
-  }
-}
