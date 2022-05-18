@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { months } from './months';
 import imageUrlBuilder from '@sanity/image-url';
+import { getImageDimensions } from '@sanity/asset-utils';
 import { PortableText } from '@portabletext/react';
 import sanityClient from '../clients/sanity-client';
 import ptComponents from './ptComponents';
@@ -20,8 +21,11 @@ const Article = (props) => {
     _updatedAt: updatedAt,
   } = post;
   let imgSource = null;
+  let height = 0;
   if (mainImage) {
     ({ _ref: imgSource } = mainImage.asset);
+    ({ height } = getImageDimensions(imgSource));
+    if (height > 720) height = 720;
   }
 
   const dateSplit = createdAt.slice(0, 10).split('-');
@@ -66,7 +70,7 @@ const Article = (props) => {
         )}
         {mainImage && (
           <img
-            src={urlFor(imgSource).height(464)}
+            src={urlFor(imgSource).height(height)}
             alt="Main image"
             loading="lazy"
             className="self-center my-3"
