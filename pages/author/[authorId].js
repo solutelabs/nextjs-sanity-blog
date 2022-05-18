@@ -3,6 +3,7 @@ import sanityClient from '../../clients/sanity-client';
 import Head from 'next/head';
 import Main from '../../components/Main';
 import Author from '../../components/Author';
+import PCbg from '../../components/PCbg';
 
 const AuthorPage = (props) => {
   const { author } = props;
@@ -12,6 +13,7 @@ const AuthorPage = (props) => {
         <title>{author.name} | Bloggo</title>
         <meta name="description" content={`See ${author.name} on Bloggo`} />
       </Head>
+      <PCbg />
       <Main>
         <Author author={author} />
       </Main>
