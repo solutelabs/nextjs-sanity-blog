@@ -6,8 +6,8 @@ const nextConfig = {
     loader: 'custom',
     domains: ['cdn.sanity.io'],
   },
-  basePath: isProd ? '/out' : '',
-  assetPrefix: isProd ? '/out/' : '',
+  basePath: isProd ? '/nextjs-sanity-blog' : '',
+  assetPrefix: isProd ? '/nextjs-sanity-blog/' : '',
 };
 
 module.exports = nextConfig;
